@@ -1,4 +1,6 @@
-package com.jibug.learning.algorithm.leetcode;
+package com.jibug.learning.algorithm.leetcode.linkedlist;
+
+import static com.jibug.learning.algorithm.leetcode.linkedlist.BaseLinked.ListNode;
 
 /**
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
@@ -15,29 +17,6 @@ package com.jibug.learning.algorithm.leetcode;
  * @date 2019-08-06 15:53
  */
 public class AddTwoNumbers_02 {
-
-    static class ListNode {
-        int value;
-        ListNode next;
-
-        public ListNode(int value) {
-            this.value = value;
-        }
-
-        public void showLinked() {
-            ListNode current = this;
-            while (current != null) {
-                System.out.print(current.value);
-                if (current.next != null) {
-                    System.out.print("->");
-                }
-                current = current.next;
-                if (current == null) {
-                    System.out.println();
-                }
-            }
-        }
-    }
 
     static class Solution {
 
