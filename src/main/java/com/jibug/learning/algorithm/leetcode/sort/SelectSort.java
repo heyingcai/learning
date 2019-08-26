@@ -3,6 +3,8 @@ package com.jibug.learning.algorithm.leetcode.sort;
 import java.util.Arrays;
 
 /**
+ * 选择排序
+ *
  * @author heyingcai
  */
 public class SelectSort {
@@ -28,7 +30,7 @@ public class SelectSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {19,2,40,23};
+        int[] array = {19, 2, 40, 23};
 
         sort(array);
 

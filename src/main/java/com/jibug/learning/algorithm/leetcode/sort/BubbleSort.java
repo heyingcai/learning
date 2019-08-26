@@ -3,6 +3,8 @@ package com.jibug.learning.algorithm.leetcode.sort;
 import java.util.Arrays;
 
 /**
+ * 冒泡排序
+ *
  * @author heyingcai
  */
 public class BubbleSort {
