@@ -1,4 +1,4 @@
-package com.jibug.learning.algorithm.leetcode.sort;
+package com.jibug.learning.datastructure.sort;
 
 import java.util.Arrays;
 
