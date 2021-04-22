@@ -1,6 +1,9 @@
 package com.jibug.learning.datastructure.sort;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 插入排序
@@ -32,6 +35,8 @@ public class InsertSort {
         int[] array = {1, 45, -2, 9, 3};
         sort(array);
 
+        ConcurrentHashMap map = new ConcurrentHashMap();
+        map.put("", null);
         System.out.println(Arrays.toString(array));
     }
 
