@@ -11,10 +11,19 @@ public class BinarySearch {
         //有序数组
         int[] array = {2, 5, 8, 10, 111, 302};
 
-        int index = binarySearch(array, 0, array.length, 111);
+        int index = binarySearch2(array, 0, array.length - 1, 1110);
         System.out.println("searchValue index : " + index);
     }
 
+    /**
+     * 递归
+     *
+     * @param array
+     * @param left
+     * @param right
+     * @param searchValue
+     * @return
+     */
     public static int binarySearch(int[] array, int left, int right, int searchValue) {
         if (left > right) {
             return -1;
@@ -30,6 +39,30 @@ public class BinarySearch {
         } else {
             return midIndex;
         }
+    }
+
+    /**
+     * 迭代
+     *
+     * @param array
+     * @param start
+     * @param end
+     * @param value
+     * @return
+     */
+    public static int binarySearch2(int[] array, int start, int end, int value) {
+        while (start <= end) {
+            int midIndex = (start + end) / 2;
+            int midValue = array[midIndex];
+            if (midValue < value) {
+                start = midIndex + 1;
+            } else if (midValue > value) {
+                end = midIndex - 1;
+            } else {
+                return midIndex;
+            }
+        }
+        return -1;
     }
 
 }
