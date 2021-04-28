@@ -5,12 +5,18 @@ import static com.jibug.learning.algorithm.leetcode.linkedlist.BaseLinked.ListNo
 /**
  * 1 → 2 → 3 → 0
  * <p>
- * 0 ← 1 ← 2 ← 3
+ * 1 ← 2 ← 3 ← 0
  *
  * @author heyingcai
  */
 public class ReverseLinkedList_206 {
 
+    /**
+     * 迭代方式翻转链表
+     *
+     * @param listNode
+     * @return
+     */
     public static ListNode reverseLinkedList(ListNode listNode) {
         //初始化头结点
         ListNode prev = null;
@@ -29,6 +35,23 @@ public class ReverseLinkedList_206 {
         return prev;
     }
 
+    /**
+     * 递归方式翻转单链表
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode reverseLinkedListRecursion(ListNode head) {
+        // 定义base case
+        if (head.next == null) {
+            return head;
+        }
+        ListNode lastNode = reverseLinkedListRecursion(head.next);
+        head.next.next = head;
+        head.next = null;
+        return lastNode;
+    }
+
     public static void main(String[] args) {
         ListNode listNode = new ListNode(1);
         listNode.next = new ListNode(2);
@@ -40,7 +63,7 @@ public class ReverseLinkedList_206 {
         //step 3: prev: 3 -> 2 -> null   linked: 0 -> null
         //step 3: prev: 0 -> 3 -> 2 -> 1 -> null   lined : null
 
-        ListNode reverseLinkedList = reverseLinkedList(listNode);
+        ListNode reverseLinkedList = reverseLinkedListRecursion(listNode);
 
 
         reverseLinkedList.showLinked();

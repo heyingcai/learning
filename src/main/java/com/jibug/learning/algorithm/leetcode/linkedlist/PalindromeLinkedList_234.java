@@ -32,6 +32,19 @@ public class PalindromeLinkedList_234 {
         return true;
     }
 
+    public static boolean isPalindrome_2(BaseLinked.ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        BaseLinked.ListNode slow = head, fast = head;
+        // fast指针多走一步
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         BaseLinked.ListNode listNode = new BaseLinked.ListNode(1);
         listNode.next = new BaseLinked.ListNode(2);
