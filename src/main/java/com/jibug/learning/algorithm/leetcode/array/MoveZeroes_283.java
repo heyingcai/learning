@@ -21,10 +21,13 @@ public class MoveZeroes_283 {
         int slow = 0,fast = 0;
         while (fast != length) {
             if (nums[fast] != 0) {
-                swap(slow,fast,nums);
+                if (fast != slow) {
+                    swap(slow,fast,nums);
+                }
                 slow++;
             }
             fast++;
+
         }
     }
 
@@ -35,7 +38,7 @@ public class MoveZeroes_283 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{0, 1, 0, 3, 12};
+        int[] nums = new int[]{1, 1, 0, 3, 12};
         moveZeroes(nums);
         System.out.println(Arrays.toString(nums));
     }

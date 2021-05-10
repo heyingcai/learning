@@ -14,6 +14,10 @@ public class ListNode {
         this.next = next;
     }
 
+    public ListNode(Integer value) {
+        this.value = value;
+    }
+
     public ListNode() {
     }
 }
