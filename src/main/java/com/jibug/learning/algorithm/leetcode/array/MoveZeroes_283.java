@@ -7,7 +7,7 @@ import java.util.Arrays;
  * <p>
  * 示例:
  * <p>
- * 输入: [0,1,0,3,12]
+ * 输入: [1,0,0,3,12]
  * 输出: [1,3,12,0,0]
  * <p>
  */
@@ -38,7 +38,7 @@ public class MoveZeroes_283 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 0, 3, 12};
+        int[] nums = new int[]{1, 0, 0, 3, 12};
         moveZeroes(nums);
         System.out.println(Arrays.toString(nums));
     }
