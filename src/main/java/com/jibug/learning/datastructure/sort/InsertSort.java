@@ -35,8 +35,6 @@ public class InsertSort {
         int[] array = {1, 45, -2, 9, 3};
         sort(array);
 
-        ConcurrentHashMap map = new ConcurrentHashMap();
-        map.put("", null);
         System.out.println(Arrays.toString(array));
     }
 
