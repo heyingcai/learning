@@ -70,6 +70,25 @@ public class QuickSort {
         }
     }
 
+    private static void qSort(int[] nums, int left, int right) {
+        int l = left, r = right;
+        if (l >= r) return;
+        int randomIndex = new Random().nextInt(right - left + 1) + left;
+        int pivot = nums[randomIndex];
+        swap(nums, left, randomIndex);
+        while (l < r) {
+            while (l < r && nums[l] > pivot) l++;
+            while (l < r && nums[r] < pivot) r--;
+            if (l < r) {
+                swap(nums, l, r);
+            }
+        }
+        nums[left] = nums[l];
+        nums[l] = pivot;
+        qSort(nums, left, l - 1);
+        qSort(nums, l + 1, right);
+    }
+
     private static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
