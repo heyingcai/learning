@@ -38,11 +38,34 @@ public class PalindromeLinkedList_234 {
         }
         BaseLinked.ListNode slow = head, fast = head;
         // fast指针多走一步
-        while (fast != null && fast.next != null) {
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
-        return false;
+        // slow 当前是第一个中间节点
+        BaseLinked.ListNode nextHead = slow.next;
+        BaseLinked.ListNode reverse = reverse(nextHead);
+        BaseLinked.ListNode cur = head;
+        while (cur != null && reverse != null) {
+            if (cur.value != reverse.value) {
+                return false;
+            }
+            cur = cur.next;
+            reverse = reverse.next;
+        }
+        return true;
+    }
+
+    private static BaseLinked.ListNode reverse(BaseLinked.ListNode node) {
+        BaseLinked.ListNode prev = null;
+        BaseLinked.ListNode cur = node;
+        while (cur != null) {
+            BaseLinked.ListNode temp = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = temp;
+        }
+        return prev;
     }
 
     public static void main(String[] args) {
@@ -51,7 +74,7 @@ public class PalindromeLinkedList_234 {
         listNode.next.next = new BaseLinked.ListNode(2);
         listNode.next.next.next = new BaseLinked.ListNode(1);
 
-        boolean palindrome = isPalindrome(listNode);
+        boolean palindrome = isPalindrome_2(listNode);
 
         System.out.println(palindrome);
 
