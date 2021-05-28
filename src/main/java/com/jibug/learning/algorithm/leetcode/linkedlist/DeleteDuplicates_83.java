@@ -31,12 +31,33 @@ public class DeleteDuplicates_83 {
         return dummy.next;
     }
 
+    /**
+     * 递归
+     * 1.明确终止条件是什么
+     * 2.找出返回值是什么
+     * 3.明确本次要做什么
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode deleteDup(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        head.next = deleteDup(head.next);
+        if (head.value == head.next.value) {
+            head = head.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         ListNode l4 = new ListNode(3);
         ListNode l3 = new ListNode(2,l4);
         ListNode l2 = new ListNode(1,l3);
-        ListNode l1 = new ListNode(1,l2);
+        ListNode l1 = new ListNode(1, l2);
 
-        deleteDuplicates(l1);
+        deleteDup(l1);
     }
 }

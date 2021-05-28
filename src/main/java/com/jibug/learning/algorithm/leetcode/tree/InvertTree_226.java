@@ -11,13 +11,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class InvertTree_226 {
 
     public TreeNode invertTree(TreeNode root) {
+        // 终止条件
         if (root == null) {
             return null;
         }
+
+        // 本次做什么？左右子树翻转
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
 
+        // 递归 左右子树
         invertTree(root.left);
         invertTree(root.right);
 
@@ -45,4 +49,6 @@ public class InvertTree_226 {
         }
         return root;
     }
+
+
 }
