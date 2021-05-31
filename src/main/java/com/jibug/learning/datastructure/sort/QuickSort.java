@@ -2,8 +2,6 @@ package com.jibug.learning.datastructure.sort;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * 快排
@@ -16,16 +14,12 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] array = {1, 45, -2, 9, 3};
-        sort(array, 0, array.length - 1);
+        randomQuickSort(array, 0, array.length - 1);
 
         System.out.println(Arrays.toString(array));
     }
 
-    public static void randomQuickSort(int[] array, int left, int right) {
-        int pivotIndex = RANDOM.nextInt(right - left + 1) + left;
-        swap(array,pivotIndex,left);
 
-    }
 
     public static void sort(int[] array, int left, int right) {
         int l = left;
@@ -70,23 +64,30 @@ public class QuickSort {
         }
     }
 
-    private static void qSort(int[] nums, int left, int right) {
-        int l = left, r = right;
-        if (l >= r) return;
-        int randomIndex = new Random().nextInt(right - left + 1) + left;
-        int pivot = nums[randomIndex];
-        swap(nums, left, randomIndex);
-        while (l < r) {
-            while (l < r && nums[l] > pivot) l++;
-            while (l < r && nums[r] < pivot) r--;
-            if (l < r) {
-                swap(nums, l, r);
-            }
+    public static void randomQuickSort(int[] nums, int left, int right) {
+        if (left < right) {
+            int p = randomPartition(nums, left, right);
+            randomQuickSort(nums, left, p - 1);
+            randomQuickSort(nums, p + 1, right);
         }
-        nums[left] = nums[l];
-        nums[l] = pivot;
-        qSort(nums, left, l - 1);
-        qSort(nums, l + 1, right);
+    }
+
+    private static int randomPartition(int[] nums, int left, int right) {
+        int randomIndex = new Random().nextInt(right - left + 1) + left;
+        swap(nums, left, randomIndex);
+        return partition(nums, left, right);
+    }
+
+    private static int partition(int[] nums, int left, int right) {
+        int l = left, r = left + 1;
+        while (r <= right) {
+            if (nums[r] < nums[left]) {
+                swap(nums,r, ++l);
+            }
+            r++;
+        }
+        swap(nums,left,l);
+        return l;
     }
 
     private static void swap(int[] array, int i, int j) {
